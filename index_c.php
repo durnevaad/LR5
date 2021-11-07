@@ -21,8 +21,8 @@ while ($row=mysqli_fetch_array($result)){
  echo "<td>" . $row['id_c'] . "</td>";
  echo "<td>" . $row['name_c'] . "</td>";
  echo "<td>" . $row['adres_c'] . "</td>";
- echo "<td><a href='edit_c.php?id=" . $row['id_f']. "'>Редактировать</a></td>"; 
- echo "<td><a href='delete_c.php?id=" . $row['id_f']. "'>Удалить</a></td>"; 
+ echo "<td><a href='edit_c.php?id=" . $row['id_c']. "'>Редактировать</a></td>"; 
+ echo "<td><a href='delete_c.php?id=" . $row['id_c']. "'>Удалить</a></td>"; 
  echo "</tr>";}
 print "</table>";
 $num_rows = mysqli_num_rows($result); 

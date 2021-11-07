@@ -7,7 +7,7 @@
  $adres_c = $_POST['adres_c'];
  $sql = "INSERT INTO centr (name_c, adres_c) VALUES('$name_c','$adres_c')";
   if (mysqli_query($link, $sql)) { 
- print "<p>Вы добавили автомобиль";
+ print "<p>Все сохранено";
  print "<p><a href=\"index_c.php\"> Вернуться к списку сервисов </a>"; }
  else { print "Ошибка сохранения! <a href=\"index_c.php\"> Вернуться к списку сервисов </a>";}
 ?>

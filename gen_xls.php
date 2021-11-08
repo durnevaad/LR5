@@ -2,7 +2,7 @@
 require_once 'PHPExcel/Classes/PHPExcel.php';
 require_once 'PHPExcel/Classes/PHPExcel/Writer/Excel5.php';
 require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
-$link = mysqli_connect("127.0.0.1", "root", "", "fridge"); 
+$link = mysqli_connect("127.0.0.1", "a0594944_root", "root", "a0594944_fridge"); 
  if (!$link) {
    echo "Невозможно подключиться к серверу." ; }
 $fr = array("№", "Марка", "Модель", "Тип разморозки", "Срок гарантии", "Название сервисного центра","Адрес",  "Дата начала ремонта", "Дата окончания", "ФИО клиента","Стоимость ремонта");

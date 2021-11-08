@@ -1,5 +1,5 @@
 <?php
- $link = mysqli_connect("127.0.0.1", "root", "", "fridge"); 
+ $link = mysqli_connect("127.0.0.1", "a0594944_root", "root", "a0594944_fridge"); 
  if (!$link) {
     echo "Невозможно подключиться к серверу." ;
 }

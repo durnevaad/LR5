@@ -5,7 +5,7 @@ require_once 'TCPDF/TCPDF.php';
     echo "Невозможно подключиться к серверу." ;}
 $fr = array("№", "Марка", "Модель", "Тип разморозки", "Срок гарантии", "Название сервисного центра","Адрес",  "Дата начала ремонта", "Дата окончания", "ФИО клиента","Стоимость ремонта");
 $pdf = new TCPDF("L", 'mm', 'A4', true, 'UTF-8');
-$pdf->SetAuthor(PDF_AUTHOR);
+$pdf->SetAuthor('Дурнева А.Д.');
 $pdf->SetTitle('Холодильники');
 $pdf->SetFont('dejavusans', '', 8, '', true);
 $pdf->AddPage();

@@ -90,5 +90,6 @@ $num_rows = mysqli_num_rows($result);
 print("<P>Всего заявок: $num_rows </p>");
 ?>
 <p> <a href="new_r.php"> Добавить заявку </a>
-
+<p> <a href="gen_pdf.php"> Сгенерировать pdf файл </a><p>	
+<p> <a href="gen_xls.php"> Сгенерировать xls файл </a><p>
 </body> </html>

@@ -6,6 +6,6 @@ $link = mysqli_connect("127.0.0.1", "root", "", "fridge");
  $id = $_GET['id'];
  $sql = "DELETE FROM fridges WHERE id_f = '$id' ";
  mysqli_query($link, $sql);
- header("Location: indexx.php");
+ header("Location: index_c.php");
  exit;
 ?>

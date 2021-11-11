@@ -68,6 +68,8 @@ print("<P>Всего сервисов: $num_rows </p>");
 			<th> № сервисного центра</th>
 			<th> ФИО</th>
 			<th> Стоимость</th>
+			<th> Номер телефона</th>
+			<th> Почта</th>
 			<th> Редактировать</th>
 			<th> Удалить</th>
 		</tr>
@@ -82,6 +84,8 @@ while ($row=mysqli_fetch_array($result)){
  echo "<td>" . $row['id_c'] . "</td>";
  echo "<td>" . $row['fio'] . "</td>";
  echo "<td>" . $row['price'] . "</td>";
+ echo "<td>" . $row['tf'] . "</td>";
+ echo "<td>" . $row['mail'] . "</td>";
  echo "<td><a href='edit_r.php?id=" . $row['id_r']. "'>Редактировать</a></td>"; 
  echo "<td><a href='delete_r.php?id=" . $row['id_r']. "'>Удалить</a></td>"; 
  echo "</tr>";}

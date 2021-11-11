@@ -1,46 +1,25 @@
-<html>
-<head> <title> Добавление новой заявки</title> </head>
-<body>
-<H2> Добавление новой заявки: </H2>
-<?php
- $link = mysqli_connect("127.0.0.1", "a0594944_root", "root", "a0594944_fridge"); 
- if (!$link) {
-    echo "Невозможно подключиться к серверу." ;
-}
-?>
-<form action="save_new_r.php" method="post">
-<br>Дата начала ремонта: <input name="data_n" type="date" size="20">
-<br>Дата окончания ремонта: <input name="data_k" type="date" size="20"> 
-
-<br>Холодильник:<br>
-<?php
-$sql_1 = "SELECT * FROM fridges";
-$sql_2 = "SELECT * FROM centr";
-$result_1 = mysqli_query($link, $sql_1) or die("Невозможно выполнить запрос!");
-$result_2 = mysqli_query($link, $sql_2) or die("Невозможно выполнить запрос!");
-$id_1 = "fridges_select";
-echo("<select name='$id_1'>");
-echo("<option value=''>--Пожалуйста, выберите опцию--</option>");
-while ($row=mysqli_fetch_array($result_1)){
-   echo("<option value='$row[1]'> $row[1]</option>");
-}
-   echo("</select><br>");
-   echo("Сервисный центр:<br>");
-$id_2 = "centr_select";
-   echo("<select name='$id_2'>");
-   echo("<option value=''>--Пожалуйста, выберите опцию--</option>");
-while ($row=mysqli_fetch_array($result_2)){
-   echo("<option value='$row[1]'> $row[1]</option>");
-}
-   echo("</select><br>");
-?>
-
-<br>ФИО клиента: <input name="fio" type="text" size="20">
-<br>Стоимость: <input name="price" type="text" size="20"> 
-<p><input name="add" type="submit" value="Добавить">
-<input type="reset"value="Очистить"><p>
-</form>
-<p>
-<a href="index_c.php"> Вернуться к списку заявок </a>
-</body>
-</html>
+<title> Добавление новой заявки</title> 
+<html> <body>
+	<script src="jquery-validation-1.15.1/lib/jquery.js"></script>
+	<script src="jquery-validation-1.15.1/dist/jquery.validate.js"></script>
+	<script type="text/javascript">
+$(document).ready(function proverka(){
+    $('f').validate({
+            rules: {
+				email: {required: true,
+					email: true,}
+		});});
+</script>
+<form action="save_new_r.php" method="post" name="f" onsubmit="return proverka()">
+<br>Дата начала ремонта: <input name="data_n" type="date" size="20" required>
+<br>Дата окончания ремонта: <input name="data_k" type="date" size="20" required>
+<br>id холодильника: <input name="id_f" type="text" size="20" required>
+<br>id сервиса: <input name="id_c" type="text" size="20" required>
+<br>ФИО клиента: <input name="fio" type="text" size="20" required>
+<br>Стоимость: <input name="price" type="text" size="20" required>
+<br>Телефон: <input name="tf" type="text" minlength = "11" maxlength = "11" size="20" pattern = "^[ 0-9]+$" title = "Введите номер в формате 89*********" required>
+<br>Почта: <input name="mail" type="email" size="20" required> 
+<br><br><input name="add" type="submit" value="Добавить">
+<input type="reset"value="Очистить">
+</form> </body> </html>
+<p><a href="index_c.php"> Вернуться к списку заявок </a>

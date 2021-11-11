@@ -5,20 +5,20 @@ require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
 $link = mysqli_connect("127.0.0.1", "a0594944_root", "root", "a0594944_fridge"); 
  if (!$link) {
    echo "Невозможно подключиться к серверу." ; }
-$fr = array("№", "Марка", "Модель", "Тип разморозки", "Срок гарантии", "Название сервисного центра","Адрес",  "Дата начала ремонта", "Дата окончания", "ФИО клиента","Стоимость ремонта");
+$fr = array("Номер", "Дата начала ремонта", "Дата окончания ремонта", "Холодильник", "Сервис", "ФИО клиента", "Стоимость", "Номер телефона","Почта");
 $xls = new PHPExcel();
 $xls->setActiveSheetIndex(0);
 $sheet = $xls->getActiveSheet();
-$sheet->setTitle('Холодильники');
+$sheet->setTitle('Заявки на ремонт');
 $j=3;
-$query = "SELECT * FROM pdf";
+$query = "SELECT * FROM remont";
 $result = mysqli_query($link, $query) or die("Невозможно выполнить запрос!");
 while ($row=mysqli_fetch_array($result)){
 for($i = 0; $i < count($row); $i++){
    $text = $row[$i];
    $sheet->setCellValueByColumnAndRow($i, $j, $text);       
 }$j++;}
-$sheet->setCellValueExplicit('A1', 'Холодильники', PHPExcel_Cell_DataType::TYPE_STRING);
+$sheet->setCellValueExplicit('A1', 'Заявки на ремонт', PHPExcel_Cell_DataType::TYPE_STRING);
 $sheet->mergeCells('A1:I1');
 $sheet->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 for($i = 0; $i < count($fr); $i++){
